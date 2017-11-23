@@ -1,0 +1,19 @@
+{
+  "name": "scavenger-hunt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.156.0",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-route": "^3.2.0",
+    "koa-router": "^7.3.0",
+    "uuid": "^3.1.0"
+  }
+}
