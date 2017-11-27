@@ -59,6 +59,30 @@ app.use(route.get('/questions', async ctx => {
   ) 
 }));
 
+app.use(route.post('/photo', async (ctx, team) => {
+    var docClient = new AWS.DynamoDB.DocumentClient()
+
+    var params = {
+        TableName: table,
+        Item: {
+            id: uuidv4(),
+            question: ctx.request.body.question,
+            team: ctx.request.body.team,
+            photo: ctx.request.body.photo
+        }
+    };
+
+    docClient.put(params, function(err, data) {
+        if (err) {
+            console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+        } else {
+            console.log("PutItem succeeded:", JSON.stringify(data, null, 2));
+        }
+    });
+
+    ctx.body = 'OK'
+}));
+
 app.use(route.post('/:team/photo', async (ctx, team) => {
     var docClient = new AWS.DynamoDB.DocumentClient()
 
